@@ -1,2 +1,44 @@
-# bank-customer-churn-dashboard
-Power BI dashboard for analyzing customer churn and creating CRM target lists.
+# Bank Customer Churn Analysis & Retention Strategy
+
+## Project Overview
+This project features an interactive Power BI dashboard designed to analyze customer attrition in the banking sector. The objective is to identify key churn drivers and provide the CRM team with an actionable target list for proactive retention campaigns.
+
+## Tools & Technologies
+- **Business Intelligence:** Power BI
+- **Data Analysis:** DAX, Data Modeling
+- **Advanced Visuals:** AI Key Influencers
+- **UI/UX:** State-based navigation, Dynamic filtering
+
+## Dashboard Pages & Features
+### 1. Executive Summary
+Provides a high-level overview of critical business metrics.
+- **Key Metrics:** Total Balance Lost, Overall Churn Rate, High-Value Churns.
+- **Visuals:** Churn rate by geographic region and customer distribution by product holding.
+*(Insert Screenshot Here: `![Executive Summary](Images/screenshot1.png)`)*
+
+### 2. Churn Insights (Deep Dive)
+Utilizes AI-driven analytics to uncover hidden patterns.
+- **AI Key Influencers:** Automatically identified that customers holding >3 products have a significantly higher risk of churning.
+- **Behavioral Analysis:** Heatmap detailing churn risk by credit card status and engagement levels.
+*(Insert Screenshot Here: `![Churn Insights](Images/screenshot2.png)`)*
+
+### 3. Action Plan & Target List
+Translates raw data into a proactive business strategy for the CRM team.
+- **Target List:** A prioritized table sorting at-risk customers by their account balance.
+- **Business Impact:** Enables the call center to directly reach out to high-value accounts, minimizing potential financial loss.
+*(Insert Screenshot Here: `![Action Plan](Images/screenshot3.png)`)*
+
+## Key DAX Measures Used
+Here are some of the core DAX formulas engineered for this dashboard:
+```dax
+Total Balance Lost = 
+CALCULATE(
+    SUM(bank_data[balance]),
+    bank_data[churn] = 1
+)
+
+Active Member Churn Rate = 
+CALCULATE(
+    [Churn Rate],
+    bank_data[is_active_member] = 1
+)
